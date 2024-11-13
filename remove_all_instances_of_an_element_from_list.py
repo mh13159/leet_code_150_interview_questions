@@ -1,8 +1,10 @@
 '''
 27. Remove Element 
-Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. 
+The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
-Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
+Change the array nums such that the first k elements of nums contain the elements which are not equal to val. 
+The remaining elements of nums are not important as well as the size of nums.
 Return k.
 Custom Judge:
 The judge will test your solution with the following code:
@@ -37,3 +39,51 @@ Constraints:
 0 <= val <= 100
 '''
 
+
+class Solution(object):
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        length_of_nums = len(nums)-1
+
+        result = []
+        while val in nums and length_of_nums>=0:
+            print(nums[length_of_nums])
+            if nums[length_of_nums] ==val:
+                print('value found in')
+                nums.remove(val)
+                result.append(-99)
+                
+            else:
+                print('value not found in')
+                result.append(nums[length_of_nums])
+            length_of_nums-=1
+            
+            
+            print(length_of_nums)
+            print(result)
+            print(nums)
+        
+        k = len(nums)
+        nums.extend(result)
+        print(nums)
+        return k
+# Instantiate the Solution class
+solution = Solution()
+
+# Define multiple test cases
+test_cases = [
+    {"nums": [1, 2, 3, 0, 2, 0],"val":2},
+    {"nums": [1, 7, 3, 0, 1, 5],"val":5},
+    {"nums": [1, 7, 3, 0, 1, 5],"val":0},
+    {"nums": [1, 7, 3, 0, 1, 5],"val":0},
+    {"nums": [],"val":0},
+]
+
+k  = solution.removeElement([1, 3, 3, 6, 9, 3],2)
+print(k)
+
+        
