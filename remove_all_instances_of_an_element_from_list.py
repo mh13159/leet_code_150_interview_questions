@@ -50,6 +50,7 @@ class Solution(object):
         length_of_nums = len(nums)-1
 
         result = []
+        # value val to be remove is in original list and variable length_of_nums >=0
         while val in nums and length_of_nums>=0:
             print(nums[length_of_nums])
             if nums[length_of_nums] ==val:
@@ -83,7 +84,7 @@ test_cases = [
     {"nums": [],"val":0},
 ]
 
-k  = solution.removeElement([1, 3, 3, 6, 9, 3],2)
+k  = solution.removeElement([2, 3, 3, 6, 9, 3],2)
 print(k)
 
         
